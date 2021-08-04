@@ -1,0 +1,7 @@
+CREATE TABLE dbo.Users
+( ID INT
+,Name VARCHAR(100)
+,ZIPCode INT
+,EyeColor VARCHAR(100)
+)
+
