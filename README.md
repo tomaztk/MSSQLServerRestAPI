@@ -2,6 +2,12 @@
 
 REST API for reading and writing data for [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server) enables you easy read and write data from your database. With help of [Node.js](https://nodejs.org/en/) you can create a API service, authentication and underlying functions for easier and faster data operations.
 
+<br>
+<div>
+<img src="images/restAPI2.png" width="350" />
+</div>
+<br>
+
 
 ## Feature Summary
 
