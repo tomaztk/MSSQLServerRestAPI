@@ -1,4 +1,4 @@
-# MSSQLServerRestAPI
+# Using REST API with Microsoft SQL Server
 
 REST API for reading and writing data for [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server) enables you easy read and write data from your database. With help of [Node.js](https://nodejs.org/en/) you can create a API service, authentication and underlying functions for easier and faster data operations.
 
@@ -25,6 +25,14 @@ git clone https://github.com/tomaztk/Useless_R_functions.git
 ```
 
 
-## Follow and more on blog posts
+## Contributing
+Do the usual GitHub fork and pull request dance. Add yourself (or I will add you to the contributors section) if you want to. 
 
-Follow the blog ([Blog post](https://tomaztsql.wordpress.com/)
+
+## Suggestions
+Feel free to suggest any new topics that you would like to be covered or follow the blog ([Blog post](https://tomaztsql.wordpress.com/))
+
+
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/) © Tomaž Kaštrun
