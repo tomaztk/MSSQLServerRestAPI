@@ -2,7 +2,7 @@
 const express = require('express'); 
 const app = express();
 const sql = require('mssql/msnodesqlv8') //mssql with MS driver for SQL Server
-
+var beautify = require("json-beautify");
  
 var env = process.env.NODE_ENV || 'production';
 var sqlConfig = require('./config')[env];
@@ -21,7 +21,8 @@ const connection = new sql.ConnectionPool(sqlConfig, function(err){
       }
     }
 )
-  
+ 
+// Input as Integer
 app.get('/UsersAD/EmloyeeID/:empID/', function(req, res) {
   connection.connect().then(pool => { 
     var conn=pool.request()
@@ -34,7 +35,11 @@ app.get('/UsersAD/EmloyeeID/:empID/', function(req, res) {
   }).then(result => {
     let rows = result.recordset
     res.setHeader('Access-Control-Allow-Origin', '*')
-    res.status(200).json(rows);
+	  // Result to URL
+   res.status(200).type('JSON').send(beautify(rows, null, 2, 100));
+		
+	  // result to log
+	  console.log(beautify(rows, null, 2, 100));
     connection.close();
   }).catch(err => {
     console.log(err);
@@ -44,3 +49,32 @@ app.get('/UsersAD/EmloyeeID/:empID/', function(req, res) {
     connection.close();
   });
 });
+
+
+
+
+ // input as VarChar
+ app.get('/UsersAD/SamAccountName/:SamAccountName/', function(req, res) {
+  connection.connect().then(pool => { 
+    var conn=pool.request()
+    conn.input('input_parameter', sql.VarChar, req.params.SamAccountName)
+    var string = 'SELECT * FROM dbo.UsersAD WHERE  SamAccountName  = @input_parameter'
+    return conn.query(string)
+  }).then(result => {
+    let rows = result.recordset
+    res.setHeader('Access-Control-Allow-Origin', '*')
+	
+	res.status(200).type('JSON').send(beautify(rows, null, 2, 100));
+		
+	// result to log
+	console.log(beautify(rows, null, 2, 100));
+    connection.close();
+  }).catch(err => {
+    console.log(err);
+    res.status(500).send({
+      message: err
+    })
+    connection.close();
+  });
+});
+ 
