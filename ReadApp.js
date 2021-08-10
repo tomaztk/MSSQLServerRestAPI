@@ -1,7 +1,4 @@
-<!-- wp:syntaxhighlighter/code {"language":"jscript"} -->
-
 // Read functions
-
 const express = require('express'); 
 const app = express();
 const sql = require('mssql/msnodesqlv8') //mssql with MS driver for SQL Server
