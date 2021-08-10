@@ -7,7 +7,7 @@ const app = express();
 const sql = require('mssql/msnodesqlv8') //mssql with MS driver for SQL Server
 
  
-var env = process.env.NODE_ENV || 'development';
+var env = process.env.NODE_ENV || 'production';
 var sqlConfig = require('./config')[env];
  
 // Start server and listen on http://localhost:2908/
@@ -24,19 +24,15 @@ const connection = new sql.ConnectionPool(sqlConfig, function(err){
       }
     }
 )
- 
-app.get('/', function(req, res) {
-    res.json({"message": "Welcome to sample API call from Microsoft MSSQL Database."});
-});
- 
-app.get('/Database/ID/:ddid/', function(req, res) {
+  
+app.get('/UsersAD/EmloyeeID/:empID/', function(req, res) {
   connection.connect().then(pool => { 
     var conn=pool.request()
     var forInteger = /\b\d+\b/i; 
-    if (forInteger.test(req.params.ddid)) {  
-		conn.input('input_parameter', sql.Int, req.params.ddid)} // integer input
+    if (forInteger.test(req.params.empID)) {  
+       conn.input('input_parameter', sql.Int, req.params.empID)}
     else {conn.input('input_parameter', sql.Int, 32116)} 
-    var string = 'select  * from AdventureWorks.Sales.Customer where ddid = @input_parameter'
+    var string = 'SELECT * FROM dbo.UsersAD WHERE  EmloyeeID  = @input_parameter'
     return conn.query(string)
   }).then(result => {
     let rows = result.recordset
@@ -51,6 +47,3 @@ app.get('/Database/ID/:ddid/', function(req, res) {
     connection.close();
   });
 });
- 
- 
- 
