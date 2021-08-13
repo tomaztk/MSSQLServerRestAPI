@@ -38,3 +38,17 @@ INSERT INTO dbo.UsersAD (EmloyeeID, SamAccountName, DisplayName, Email)
 UNION ALL SELECT 22,'NielT','Niel Ty','NielT@account.com'
 UNION ALL SELECT 25,'ImmanuelK','Immanuel Kan','ImmanuelK@account.com'
 UNION ALL SELECT 30,'BillG','Bill William Gate','BillG@account.com'
+
+
+
+---- For Write Data
+
+
+DROP TABLE IF EXISTS dbo.usersAD2
+
+CREATE TABLE dbo.usersAD2 
+(
+ Id INT IDENTITY(1,1) NOT NULL
+,dateinserted DATETIME DEFAULT(getdate()) NOT NULL
+,val INT
+,val2 INT)
