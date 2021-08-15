@@ -1,6 +1,6 @@
 # Using REST API with Microsoft SQL Server
 
-REST API for reading and writing data for [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server) enables you easy read and write data from your database. With help of [Node.js](https://nodejs.org/en/) you can create a API service, authentication and underlying functions for easier and faster data operations.
+REST API for reading and writing data for [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server) enables you easy read and write data from your database. With help of [Node.js](https://nodejs.org/en/) you can create a API service, authentication and underlying functions for easier and faster data operations. You can read the data from the database with GET operations or push or insert the data into database with POST operation or you can get a predicted value for your machine learning model, stored (or pickled) in the database or object store.
 
 <br>
 <div>
