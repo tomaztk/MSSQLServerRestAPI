@@ -41,14 +41,24 @@ UNION ALL SELECT 30,'BillG','Bill William Gate','BillG@account.com'
 
 
 
----- For Write Data
-
-
+/* ---------------------------------------------------
+*
+* For Write Data
+* Sample table (usersAD2) to test two input integers
+* Sample table (TestChar) to test input as character
+-------------------------------------------------- */
 DROP TABLE IF EXISTS dbo.usersAD2
-
 CREATE TABLE dbo.usersAD2 
-(
- Id INT IDENTITY(1,1) NOT NULL
+(id INT IDENTITY(1,1) NOT NULL
 ,dateinserted DATETIME DEFAULT(getdate()) NOT NULL
 ,val INT
 ,val2 INT)
+
+
+DROP TABLE IF EXISTS dbo.TestChar
+CREATE TABLE dbo.TestChar
+(id INT IDENTITY(1,1) NOT NULL
+,tekst VARCHAR(100)
+,ts DATETIME DEFAULT(getdate()) NOT NULL)
+
+
