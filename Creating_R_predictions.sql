@@ -44,6 +44,7 @@ BEGIN
       @language = N'R'
     , @script = N'
         require("RevoScaleR");
+		iris_train_data$Species = factor(iris_train_data$Species);
         model_dtree <- rxDTree(Species ~ Sepal_length + Sepal_width + Petal_length + Petal_width, data = iris_train_data)
         trained_model <- as.raw(serialize(model_dtree, connection=NULL));'
 
@@ -80,14 +81,14 @@ BEGIN
             require("RevoScaleR");
             iris_set = InputDataSet;
 		    iris_model = unserialize(rx_model);
-            iris_predictions = rxPredict(iris_model, iris_set);'
+            iris_predictions = rxPredict(iris_model, iris_set, type = "class");'
                 , @input_data_1 = @q
                 , @output_data_1_name = N'iris_predictions'
                 , @params = N'@rx_model varbinary(max)'
                 , @rx_model = @rx_model
-                WITH RESULT SETS ((
-						iris_predictions VARCHAR(20)
-						));
+      --          WITH RESULT SETS ((
+						--iris_predictions VARCHAR(20)
+						--));
 
 END;
 GO
