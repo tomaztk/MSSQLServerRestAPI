@@ -86,9 +86,9 @@ BEGIN
                 , @output_data_1_name = N'iris_predictions'
                 , @params = N'@rx_model varbinary(max)'
                 , @rx_model = @rx_model
-      --          WITH RESULT SETS ((
-						--iris_predictions VARCHAR(20)
-						--));
+                WITH RESULT SETS ((
+						iris_predictions VARCHAR(20)
+						));
 
 END;
 GO
