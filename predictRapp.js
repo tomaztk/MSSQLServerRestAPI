@@ -55,7 +55,9 @@ const connection = new sql.ConnectionPool(sqlConfig, function(err){
  res.send('Error in reading');
  }
  else{
-   res.send('Successfully Predicted');
+   res.status(200).type('JSON').send(beautify(result, null, 2, 100));
+   console.log(result);  
+ 
  }});});
 
  });
