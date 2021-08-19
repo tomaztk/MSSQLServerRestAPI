@@ -12,7 +12,7 @@ REST API for reading and writing data for [Microsoft SQL Server](https://www.mic
 ## Feature Summary
 
   - Reading data from MSSQL using API ([blog post](https://tomaztsql.wordpress.com/2021/08/10/creating-rest-api-for-reading-data-from-microsoft-sql-server-in-web-browser/))
-  - Writing data to MSSQL using API  ([blog post]())
+  - Writing data to MSSQL using API  ([blog post](https://tomaztsql.wordpress.com/2021/08/18/writing-data-to-microsoft-sql-server-from-web-browser-using-rest-api-and-node-js))
   - Creating predictions using API and R ([blog post]())
   - Creating predictions using API and Python ([blog post]())
 
