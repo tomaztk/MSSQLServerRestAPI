@@ -31,7 +31,7 @@ const connection = new sql.ConnectionPool(sqlConfig, function(err){
 )
 
 // Sample with parameters for prediction
-//Use URL: http://localhost:2908/Predict?Sepal_length=1&Sepal_width=3&Petal_length=1&Petal_width=0
+//Use URL: http://localhost:2908/Predict?Sepal_length=4.45&Sepal_width=2.94&Petal_length=1.34&Petal_width=0.41
 
 // create pool to return the results!!
  app.get('/Predict', function(req,res){
